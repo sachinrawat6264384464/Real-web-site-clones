@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e9ecef;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(180, 177, 179, 0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 10px 5%;
+    }
+
+    nav img {
+      width: 120px;
+    }
+  .menu{
+  margin-right: 20%;
+  }
+    .menu ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .menu ul li {
+      list-style: none;
+    }
+
+    .menu ul li a {
+      text-decoration: none;
+      color: #141414;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    .menu ul li a:hover {
+      border-bottom: 2px solid #7f1717a8;
+      color: #a4133c;
+    }
+
+    /* Hero Section */
+    .imgcon2 {
+      width: 100%;
+      min-height: 50vh;
+      background-image: url("about.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .imgcon2 h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 10px;
+    }
+
+    .imgcon2 a {
+      color: #fff;
+      text-decoration: none;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+    }
+
+    /* Flip Card Section */
+    section.cards {
+      margin: 20px auto;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      justify-content: center;
+      padding: 1rem;
+      
+    }
+
+    .external {
+      width: 100%;
+      height: 200px;
+      perspective: 1000px;
+    }
+
+    .internal {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .internal:hover {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    .front {
+      background: #a4133c;
+    }
+
+    .back {
+      background: #1318a4;
+      transform: rotateY(180deg);
+    }
+
+    /* Footer */
+    .footer {
+    
+      background: #c6c7c6;
+      color: #0e0e0e;
+      padding: 40px 20px;
+      margin-top: 50px;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer h3 {
+      margin-bottom: 15px;
+      color: #a4133c;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer ul li a {
+      text-decoration: none;
+      color: #0e0e0e;
+      transition: 0.3s;
+    }
+
+    .footer ul li a:hover {
+      color: #f2c94c;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 25px;
+      border-top: 1px solid rgba(0,0,0,0.3);
+      padding-top: 12px;
+      font-size: 14px;
+      color: #333;
+    }
+    @media (max-width: 450px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-col {
+        text-align: center;
+      }
+       .footer {
+       width: 190vw;
+          padding: 40px 40px;
+          font-size: 2rem;
+        }
+        
+        section.cards {
+        
+        
+          width: 190vw;
+        }
+          nav img {
+      width: 269px;
+    }
+
+    }
+    /* Responsive Navbar on Mobile */
+    @media (max-width: 768px) {
+      nav {
+      
+        align-items: flex-start;
+        height: auto;
+      }
+      .menu ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+      .menu ul li a {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <img src="images/logo.png" alt="Logo">
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Our Doctors</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="imgcon2">
+    <h1>About Us</h1>
+    <a href="index.html">Home > About</a>
+  </section>
+
+  <!-- Flip Card Section -->
+  <section class="cards">
+    <div class="external">
+      <div class="internal">
+        <div class="front">Hiiiii</div>
+        <div class="back">Byyyy</div>
+      </div>
+    </div>
+    <div class="external">
+      <div class="internal">
+        <div class="front">Hiiiii</div>
+        <div class="back">Byyyy</div>
+      </div>
+    </div>
+    <div class="external">
+      <div class="internal">
+        <div class="front">Hiiiii</div>
+        <div class="back">Byyyy</div>
+      </div>
+    </div>
+    <div class="external">
+      <div class="internal">
+        <div class="front">Hiiiii</div>
+        <div class="back">Byyyy</div>
+      </div>
+    </div>
+    <div class="external">
+      <div class="internal">
+        <div class="front">Hiiiii</div>
+        <div class="back">Byyyy</div>
+      </div>
+    </div>
+    <div class="external">
+      <div class="internal">
+        <div class="front">Hiiiii</div>
+        <div class="back">Byyyy</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <img src="images/logo.png" alt="Logo">
+      </div>
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Cardiology</a></li>
+          <li><a href="#">Neurology</a></li>
+          <li><a href="#">Doctors</a></li>
+          <li><a href="#">Emergency Care</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Reach Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Address</h3>
+        <p>15/1, Bhawarkua Main Rd, Transport Nagar, Indore, MP 452008</p>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><strong>Phone:</strong> 0731-476-9999</p>
+        <p><strong>Email:</strong> 
+          <a href="mailto:info@applehospital.co.in">info@applehospital.co.in</a><br>
+          <a href="mailto:frontoffice@aihrc.in">frontoffice@aihrc.in</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 MediCare Hospital. All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

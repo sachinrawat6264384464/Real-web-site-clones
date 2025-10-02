@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draggable Marquee</title>
+<style>
+#marquee-container {
+  width: 70%;
+  margin-left: 30%;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 1px solid #ccc;
+  cursor: grab;
+  user-select: none;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#marquee-text {
+  display: inline-block;
+  padding-right: 50px;
+  position: relative;
+  left: 100%;
+}
+
+#marquee-container.dragging {
+  cursor: grabbing;
+}
+
+</style>
+</head>
+<body>
+
+<div id="marquee-container">
+  <div id="marquee-text">Apple Hospital - Caring Beyond Treatment</div>
+</div>
+
+<script>
+const container = document.getElementById('marquee-container');
+const text = document.getElementById('marquee-text');
+
+let isDown = false;
+let startX;
+let startLeft;
+
+let speed = 1; // pixels per frame
+let pos = container.offsetWidth; // initial position
+
+function animate() {
+  if(!isDown) {
+    pos -= speed;
+    if(pos < -text.offsetWidth) pos = container.offsetWidth;
+    text.style.left = pos + "px";
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+
+// Drag functionality
+container.addEventListener('mousedown', (e) => {
+  isDown = true;
+  container.classList.add('dragging');
+  startX = e.pageX;
+  startLeft = pos;
+});
+
+container.addEventListener('mouseup', () => {
+  isDown = false;
+  container.classList.remove('dragging');
+});
+
+container.addEventListener('mouseleave', () => {
+  isDown = false;
+  container.classList.remove('dragging');
+});
+
+container.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  const walk = e.pageX - startX;
+  pos = startLeft + walk;
+  text.style.left = pos + "px";
+});
+
+
+
+
+document.querySelector("#content > div > div > div.elementor-element.elementor-element-8534133.e-flex.e-con-boxed.wpr-particle-no.wpr-jarallax-no.wpr-parallax-no.wpr-sticky-section-no.e-con.e-parent.e-lazyloaded > div > div.elementor-element.elementor-element-afdc677.e-con-full.e-flex.wpr-particle-no.wpr-jarallax-no.wpr-parallax-no.wpr-sticky-section-no.e-con.e-child > div > div > div > div.wpr-flip-box-item.wpr-flip-box-back.wpr-anim-timing-ease-default > div.wpr-flip-box-content > a")
+</script>
+
+</body>
+</html>
